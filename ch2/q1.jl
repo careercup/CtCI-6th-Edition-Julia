@@ -17,6 +17,9 @@ function remove_dups!(ll :: LinkedList)
   end
 end
 
+# Time  : O(n)
+# Space : O(n)
+
 using Base: Test
 
 ll = LinkedList()
