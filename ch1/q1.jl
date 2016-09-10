@@ -1,16 +1,20 @@
 function is_unique(str :: ASCIIString)
   d :: Dict{Char, Int} = Dict{Char, Int}()
 
-  for ch in str
-    if haskey(d, ch)
-      return false
-    else
-      d[ch] = 1
+  for ch in str       # for each character in the string
+    if haskey(d, ch)  # if there is multiple occurances
+      return false    # return false
+    else              # else
+      d[ch] = 1       # record the occurance using a dictionary (HashMap)
     end
   end
 
   return true
 end
+
+# Time  : O(n)
+# Space : O(n)
+# Note  : space compelxity could be improved by using a bit vector
 
 using Base: Test
 

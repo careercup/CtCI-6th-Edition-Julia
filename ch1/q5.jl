@@ -1,4 +1,8 @@
 function one_away(str1 :: ASCIIString, str2 :: ASCIIString)
+  """
+  Check if the shorter string is only one
+  edit distance form the longer string
+  """
   function is_one_away(shorter :: ASCIIString, longer :: ASCIIString)
     idx_s, idx_l = 1, 1
     len_s, len_l = length(shorter), length(longer)
@@ -19,13 +23,16 @@ function one_away(str1 :: ASCIIString, str2 :: ASCIIString)
   if abs(length(str1) - length(str2)) > 1
     return false
   else
-    if length(str1) < length(str2)
+    if length(str1) < length(str2)        # pass two strings in the right order
       return is_one_away(str1, str2)
     else
       return is_one_away(str2, str1)
     end
   end
 end
+
+# Time  : O(n)
+# Space : O(1)
 
 using Base: Test
 

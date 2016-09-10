@@ -1,11 +1,11 @@
 function check_permutation(str1 :: ASCIIString, str2 :: ASCIIString)
-  if length(str1) != length(str2)
+  if length(str1) != length(str2) # permutations must have the same length
     return false
   end
 
   d :: Dict{Char, Int} = Dict{Char, Int}()
 
-  for ch in str1
+  for ch in str1      # count characters in the first string
     if haskey(d, ch)
       d[ch] += 1
     else
@@ -13,19 +13,22 @@ function check_permutation(str1 :: ASCIIString, str2 :: ASCIIString)
     end
   end
 
-  for ch in str2
+  for ch in str2      # discount characters in the second string
     if haskey(d, ch)
-      if d[ch] == 0
-        return false
+      if d[ch] == 0   # if there is negative count to appear
+        return false  # return false
       end
       d[ch] -= 1
-    else
-      return false
+    else              # if there is new characters
+      return false    # return false
     end
   end
 
   return true
 end
+
+# Time  : O(n)
+# Space : O(n)
 
 using Base: Test
 
