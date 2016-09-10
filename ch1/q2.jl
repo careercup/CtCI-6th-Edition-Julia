@@ -3,7 +3,7 @@ function check_permutation(str1 :: ASCIIString, str2 :: ASCIIString)
     return false
   end
 
-  d = Dict{Char, Int}()
+  d :: Dict{Char, Int} = Dict{Char, Int}()
 
   for ch in str1
     if haskey(d, ch)

@@ -1,5 +1,5 @@
 function is_unique(str :: ASCIIString)
-  d = Dict{Char, Int}()
+  d :: Dict{Char, Int} = Dict{Char, Int}()
 
   for ch in str
     if haskey(d, ch)
@@ -8,7 +8,7 @@ function is_unique(str :: ASCIIString)
       d[ch] = 1
     end
   end
-  
+
   return true
 end
 

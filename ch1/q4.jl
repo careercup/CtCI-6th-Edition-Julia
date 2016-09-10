@@ -3,9 +3,9 @@ function palindrome_permutation(str :: ASCIIString)
     a :: Int = int('a')
     ch :: Int = int(ch)
     if a <= ch <= int('z')
-      ch - a
+      return ch - a
     else
-      -1
+      return -1
     end
   end
 
@@ -13,7 +13,7 @@ function palindrome_permutation(str :: ASCIIString)
     if idx <= 0
       return bit_vector
     end
-    bit_vector $= 1 << idx
+    return bit_vector $= 1 << idx
   end
 
   function create_bit_vector(str :: ASCIIString)
@@ -21,16 +21,16 @@ function palindrome_permutation(str :: ASCIIString)
     for ch in str
       bit_vector = toggle_bit(bit_vector, char_to_int(ch))
     end
-    bit_vector
+    return bit_vector
   end
 
   function has_one_bit(bit_vector :: Int)
     ((bit_vector - 1) & bit_vector) == 0
   end
 
-  bv = create_bit_vector(lowercase(str))
+  bv :: Int  = create_bit_vector(lowercase(str))
 
-  (bv == 0) || has_one_bit(bv)
+  return (bv == 0) || has_one_bit(bv)
 end
 
 

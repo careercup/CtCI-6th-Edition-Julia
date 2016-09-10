@@ -1,6 +1,7 @@
 function URLify(str :: ASCIIString, real_length :: Int)
-  char_array = map(single_string -> single_string[1], split(str, ""))
-  idx = length(char_array)
+  char_array :: Array{Char} = map(single_string -> single_string[1], split(str, ""))
+
+  idx :: Int = length(char_array)
   for i = real_length:-1:1
     if char_array[i] != ' '
       char_array[idx] = char_array[i]
@@ -12,7 +13,8 @@ function URLify(str :: ASCIIString, real_length :: Int)
       idx -= 3
     end
   end
-  ASCIIString(char_array)
+  
+  return ASCIIString(char_array)
 end
 
 using Base: Test
