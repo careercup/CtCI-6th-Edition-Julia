@@ -32,7 +32,7 @@ function delete_node!(ll :: LinkedList, item)
   if curr.item == item ll.head = curr.next; end
 
   while curr.next != nothing
-    if curr.next.item == item curr.next = curr.next.next; end
+    if curr.next.item == item curr.next = curr.next.next; break; end
     curr = curr.next
   end
 end
