@@ -29,5 +29,9 @@ function string_compression(str :: ASCIIString)
   return length(str) > length(compressed_str) ?  compressed_str : str
 end
 
+# Time  : O(n)
+# Space : O(n)
 
-string_compression("acbbbbb")
+using Base: Test
+
+@test string_compression("aabcccccaaa") == "a2b1c5a3"
