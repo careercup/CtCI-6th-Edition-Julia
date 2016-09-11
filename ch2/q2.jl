@@ -3,11 +3,14 @@ include("support.jl")
 function return_kth_to_last(ll :: LinkedList, k :: Int)
   forward :: Node = ll.head
   backward :: Node = ll.head
+
+  # Make the forward pointer move k - 1 steps
   for _ = 1:(k-1)
     @assert forward.next != nothing "[return_kth_to_last] LinkedList has fewer than k nodes"
     forward = forward.next
   end
 
+  # Move until the forward pointer reaches the end
   while forward.next != nothing
     forward = forward.next
     backward = backward.next

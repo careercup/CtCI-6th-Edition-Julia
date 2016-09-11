@@ -4,14 +4,14 @@ function remove_dups!(ll :: LinkedList)
   record :: Set = Set()
   push!(record, ll.head.item)
 
-  prev :: Node = ll.head
+  prev :: Node = ll.head      # pointer to the first occurance of some item
   curr = ll.head.next
   while curr != nothing
     if curr.item in record
       prev.next = curr.next
     else
       push!(record, curr.next.item)
-      prev = curr
+      prev = curr             # update when new item appears
     end
     curr = curr.next
   end
